@@ -1,5 +1,9 @@
 # ClientsApi
 
+Audit logs not implemented.
+
+Works on: http://localhost:5000
+
 Requests:
 GET /clients
 
