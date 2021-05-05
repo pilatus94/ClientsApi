@@ -24,6 +24,7 @@ namespace Api
             Get["/clients"] = _ =>
             {
                 _logger.Info("GET /clients");
+
                 return JsonConvert.SerializeObject(_clientRepository.GetAllClients());
             };
 
@@ -32,6 +33,7 @@ namespace Api
                 var id = parameters["id"];
 
                 _logger.Info($"GET /clients/{id}");
+
                 return _clientRepository.GetClient(id) ?? HttpStatusCode.NoContent;
             };
 
@@ -44,7 +46,6 @@ namespace Api
                 var client = JsonConvert.DeserializeObject<Client>(requestBody);
                 _clientRepository.AddClient(client);
 
-
                 return HttpStatusCode.OK;
             };
 
@@ -55,6 +56,7 @@ namespace Api
                 _logger.Info($"DELETE /clients/{id}");
 
                 _clientRepository.DeleteClient(id);
+
                 return HttpStatusCode.OK;
             };
 
